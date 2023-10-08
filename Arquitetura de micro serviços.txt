@@ -1,0 +1,36 @@
+MICROSSERVIÇOS
+- São aplicações comuns
+- Tem objetivos bem definidos
+- Faz parte de um ecosistema
+- São independentes/autônomos
+- Se comunicam o tempo todo
+- Microsserviços vs Monolíticos
+    - Microserviços tem objetivos bem definidos, quando monolíticos tem toda a aplicação no mesmo sistema
+    - Microsserviços tem várias linguagens de programação, quando monolíticos tem apenas uma
+    - Microsserviços tem menos riscos de deploy, quando monolíticos tem mais riscos
+    - Microsserviços tem a parte organizacional mais facilitada, enquanto os monolíticos todos trabalham no mesmo sistema
+    - Sistemas monolíticos são mais fáceis de iniciar
+- Quando eu devo utilizar microserviços
+    - Escalar times
+    - Contextos bem definidos
+    - Quando você tem maturidade nos processos de entrega
+    - Quando tenho a necessidade de escalar partes da aplicação
+    - Quando eu preciso de tecnologias específicas para partes do meu sistema
+- Quando eu devo utilizar sistemas monolíticos
+    - Necessidade de provas de conceito
+    - Projetos onde não conhecemos todo o domínio
+    - Governança simplificada clara sobre tecnologias
+    - Facilidade de contratação e treinamento dos devs
+    - Tudo está no mesmo lugar
+    - Compartilhamento claro de bibliotecas de código
+- Migração de monolitos para Microsserviços
+    - Separação de Contextos (DDD)
+    - Evite o excesso de granularidade
+    - Verifique dependências (monolito distribuído)
+    - Planeje o processo de migração dos bancos de dados
+    - Eventos
+    - Não tenha medo de duplicação de dados
+    - Consistência eventual
+    - CI/DD/Testes/Ambientes
+    - Inicie pelas beiradas, comece pelas partes menos impactantes do Ambientes
+    - Padrão de estrangulamento

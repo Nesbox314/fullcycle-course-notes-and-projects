@@ -1,0 +1,33 @@
+DOCKER
+	1- O que são os containers?
+		a) É um processo isolado pelos namespaces que emula um sistema operacional. Namespaces = Isola os processos do sistema operacional
+		b) Cgroups = controla e isola os recursos de cada um dos containers, delimitando-s.
+		c) FileSystem = permite o uso de recursos do sistema operacional sem ter que colocá-lo inteiro dentro do container
+		d) Quando rodando, a imagem é imutável. 
+	2- O que são imagens?
+		a) Gerenciam todas as dependências necessárias para o funcionamento do projeto, através de camadas em formato de árvore.
+		b) Dockerfile = arquivo de dependência de imagens, personalizável.
+	3- Docker run, caso não tenha o container na máquina, baixa ele e roda.	
+	4- run -i = libera o terminal para uso após execução do run, -t = libera a digitação do texto no terminal, --rm = remove execução antiga e parada do mesmo container executado
+	5- Containers são como outras máquinas, mesmo com a porta aberta, é possível que o acesso não esteja liberado
+	6- -p = para realizar o redirecionamento de portas 8080:80, -d = realizar o desatach do terminal para uso dele com containers que rodam
+	7- bind mounts = refeltir uma pasta do seu PC local para a pasta dentro do container do docker
+
+Exemplo de Dockerfile
+FROM nginx:latest //sempre há de iniciar com uma imagem base
+
+USER ricardo
+
+WORKDIR /app
+
+RUN apt-get update && apt-get install vim -y
+
+COPY html/ /usr/share/nginx
+
+	CMD = Pode ser substituído ao rodar via console
+	Entrypoint = não pode ser subustituído
+
+Networks = É possível conectar os containers entre eles, fazendo uma árvore ou acessando a máquina que roda o docker.
+
+DOCKER COMPOSE - Builda e sobe várias imagens de uma vez só
+	

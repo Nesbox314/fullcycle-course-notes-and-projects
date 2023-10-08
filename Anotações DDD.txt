@@ -1,0 +1,96 @@
+DDD (Domain Driven Design)
+    - O que é o DDD?
+        - É uma forma de desenvolver software com o foco no coração da aplicação
+    - Complexidades de um software
+        - O DDD deve ser implementado em softwares complexos
+        - Grandes projetos tem muitas regras de negócio e muitas áreas
+        - Não há como não utilizar técnicas avançadas em projetos de alta complexidade
+        - Grande parte da complexidade desse tipo de software não vem da tecnologia
+    - Como que o DDD pode ajudar?
+        - Entender com profundidade o domínio e subdomínios da aplicação
+        - Ter uma linguagem universal (linguagem ubíqua) entre todos os envolvidos
+        - Criar o design estratégico utilizando Bounded Contexts
+        - Criar o design tático para conseguir mapear e agregar as entidades e objetos de valor da aplicação, bem como eventos de domínio
+    - Domínios e subdomínios
+        - Domínio é o problema completo, com toda a complexidade
+        - Subdomínio é separar o problema em mais Domínios
+        - Core domain é o subdomínio principal do projeto (pão numa padaria, carro numa fábrica de carros)
+        - Subdomínio de suporte é o suporte do domínio geral, faz com que toda a operação seja possível
+        - Subdomínio genérico é o subdomínio que auxilia, porém sem potencial competitivo para empresa
+    - Contexto delimitado (Bounded Contexts)
+        - É uma delimitação que separa subdomínios e os agrupa
+    - Contexto  
+        - Contexto é rei
+        - Quando duas palavras iguais são usadas para dois campos diferentes, e com diferentes sentidos, é sinal de contexto diferente
+        - Quando duas palavras diferentes são usadas para dois campos diferentes, e com iguais sentidos, é sinal de contexto diferente
+        - Elemento transversal
+            - Quando um conceito igual é usado em dois contextos diferentes, deve ser separado em partes diferentes
+    - Padrões de Contexto Mapping
+        - Partnership
+        - Shared Kernel
+        - Customer-Supplier Development
+        - Conformist
+        - Anticorruption-layer
+        - Open host service
+        - Published language
+        - Separate ways
+        - Big Ball of Mud
+        - GitHub: ddd-crew/context-mapping
+    - Entidade
+        - É algo único que possui características que podem ser modificadas ao passar do tempo
+        - Algo que contém um ciclo de vida
+        - Entidade = IDENTIDADE
+        - Entidades anêmicas
+            - São entidades que apenas servem para carregar dados
+        - ORM 
+            - Desenvolvimento orientado a banco de dados
+        - Regras de negócio 
+            - São meios de modificar o fluxo de processamento do sistema para atender a uma demanda específica
+            - Tudo deve ser desenvolvido orientado a regra de negócio
+            - Expressividade
+                - changeName em vez de setName ou activate em vez de setActive. São nomes que já expressam o negócio.
+        - Consistência constante em primeiro lugar
+            - Todo o desenvolvimento deve estar focado na consistência dos dados
+            - Adição de várias validações para que os dados obrigatórios SEMPRE estejam consistentes, desde a raiz do código
+        - Princípio de autovalidação
+            - Uma entidade por padrão SEMPRE deve se auto-validar
+            - Se a validação ocorrer em um agente fora da classe, sempre há a chance de a entidade estar inválida
+        - Entidade vs ORM
+            - Para usar os conceitos, é ideal que se separem as entidades de negócio e de persistência
+            - Separar em model e entity
+                - Model = tecnologia
+                - Entity = cliente
+    - Value Objects
+        - O software tem de ser totalmente expressivo na sua construção
+        - Quando pensamos nos atributos de uma entidade (boolean, string e etc), trate como um value objects
+        - Em vez de fazer um cpf como string, desenvolva como um TIPO cpf
+        - São imutáveis (não editáveis)
+    - Agregados
+        - É essencial definir a relação de entidades entre a relação mais forte e a mais fraca, para assim decidir se usamos um array na forte ou o ID na fraca ou vice e versa
+        - se está no mesmo agregado, faça por array, se estiver em agregados diferentes, faça por id
+    - Domain services
+        - É para realizar operações em modelos de domínio
+        - Stateless (sem estado, não guardam nenhum dado)
+        - É atrelado as regras de negócio
+        - Quando houver muitos serviços de domínio, é indicação que os agregados estão anêmicos
+    - Repositórios
+        - É um local de armazenamento seguro para preservação dos dados
+        - Há uma relação de um para um de agregados e repositórios
+    - Domain events
+        - Todo evento deve representar uma ação realizada no passado
+        - Normalmente usado para que outros contextos sejam notificados de uma ação
+        - Componentes
+            - Event 
+            - Handler: executa o processamento quando um evento é criado
+            - Event Dispatcher: responsável por armazenar e executar os handlers dos eventos
+    - Módulos
+        - Servem como contâiners para classes muito coesas 
+        - Respeitar a liguagem universal
+        - Baixo acoplamento entre módulos
+        - Um ou mais agregados devem estar juntos apenas se isso faz sentido
+        - Organizado pelo domínio / subdomínio e não pelo tipo do objetos
+        - Devem representar as mesmas divisões em camadas diferentes
+    - Factories
+        - Desloque a responsabilidade de criar instâncias de objetos complexos e agregados para um objeto responsável por isso
+        - Geralmente útil para criar agregados com muitas relações, mantendo a integridade deles
+        

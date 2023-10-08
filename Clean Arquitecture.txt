@@ -1,0 +1,45 @@
+CLEAN ARQUITECTURE
+    - É muito parecida com a Arquitetura Hexagonal, trabalhando da mesma forma
+    - Baixo acoplamento entre as camadas
+    - Orientada a casos de uso
+    - Pontos importantes sobre arquitetura
+        - Formatação de software (padronização)
+        - Divisão de responsabilidades e componentes
+        - Comunicação entre componentes
+        - Há de facilitar o desenvolvimento, deploy, operação e manutenção
+        - Quanto mais você pode alterar o software sem tomar decisões precipitadas, melhor
+    - Objetivo de uma boa arquitetura
+        - Dar suporte ao ciclo de vida de um sistema
+    - Keep Options Open
+        - Portas abertas
+        - Regras vs Detalhes
+            - São as regras de negócio que trazem valor real ao software
+            - Detalhes nos ajudam a suportar as regras
+            - Detalhes não devem impactar nas regras de negócio
+            - Frameworks não devem impactar nas regras de negócio
+    - Use Cases
+        - Representam uma intenção
+        - Clareza sobre cada comportamento do software
+        - Use Cases vs Single Responsability Principle
+            - Temos a tendência de reaproveitar use cases por serem muito parecidos
+            - Não devemos reaproveitar use cases
+        - O fluxo do use case
+            - É uma orquestração do fluxo do código, listando as tarefas
+    - Limites arquiteturais
+        - Tudo o que não impacta diretamente nas regras de negócio deve estar em um limite arquitetural diferente
+        - Dependa de abstrações (sempre)
+    - Input vs Output
+        - Tudo se resume a um input que retorna um output
+        - Simplifique seu raciocínio ao criar um software sempre pensando em Input e Output
+    - DTO (Data Transfer Object)
+        - Trafega os dados entre os limites arquiteturais
+        - Objeto anêmico
+        - Apenas contém dados, input/output
+        - Não possui regras de negócio
+        - Não possui comportamento
+        - Não faz nada
+    - Presenters
+        - Objetos de transformação
+        - Adequa o DTO de input para o output
+        - Um sistema pode ter diversas formas de entregar os resultados
+        - 

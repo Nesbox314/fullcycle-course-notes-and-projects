@@ -1,0 +1,6 @@
+EVENT STORMING
+    - É uma técnica que nos ajuda a entender o domínio da aplicação
+    - Normalmente acontece através de workshops (dinâmicas)
+    - Mapeamento dos eventos
+        - Eventos geralmente devem representar o final da ação
+        - Todo evento é feito através de um comando

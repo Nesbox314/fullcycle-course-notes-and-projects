@@ -1,0 +1,26 @@
+ARQUITETURA HEXAGONAL (Ports and Adapters)
+    - Desenvolvimentos de softwares são baseados em complexidade de negócio e complexidade técnica
+    - O ideal é separar completamente a camada de negócio com a camada técnica
+    - Crescimento sustentável
+    - O software precisa se pagar ao passar do tempo
+    - O software deve ser desenhado por você e não pelo seu framework
+    - As peças do software devem poder ser trocadas
+    - Isso é sobre FUTURO! CRUD qualquer um faz!
+    - Principais problemas do ciclo de vida de vários projetos
+        - Falta visão de futuro 
+        - Falta de limites bem definidos
+        - Acoplamento muito forte, não podendo trocar parte do sistema
+        - Falta de escalabilidade
+        - Falta preparação para mudanças no sistema
+    - Reflexões
+        - Está sendo doloroso desenvolver?
+        - Problemas poderiam ter sido evitados?
+        - Software está se pagando?
+        - Será que a relação com o cliente está boa?
+        - Cliente terá prejuízo com a brusca mudança de estrutura?
+        - Em qual momento tudo se perdeu?
+        - Se você fosse novo na equipe, você julgaria os devs que fizeram tudo isso?
+    - Arquitetura vs Design
+        - Atividades de arquitetura SÃO design, mas nem todas as atividades de design são arquitetura
+    - Faz com que tenhamos portas e adaptadores para que aplicativos externos usem nossa aplicação de forma correta
+    

@@ -1,0 +1,29 @@
+SISTEMAS MONOLÍTICOS
+    - Aplicação tradicional
+    - Tudo em um
+    - Apenas uma unidade de deployment (há de se fazer deploy de tudo para apenas uma parte fazer deploy)
+    - Grande parte dos argumentos contra sistemas monolíticos são falsos!
+    - Quando usar monolitos pode ser uma boa?
+        - Novos projetos onde o modelo de negócio não está claro
+        - Instabilidade no core do negócio
+        - Evitar complexidade no processo de deploy
+        - Evitar complexidade na operação
+        - 95% das vezes a melhor opção
+    - Tipos de sistemas monolíticos
+        - Single process (sistema e banco de dados apenas)
+            - Alto acoplamento
+            - Modular
+            - Modulares com bancos de dados segregados
+        - Monolítos distribuídos
+        - Black box
+    - Principais problemas
+        - Não existe contexto
+        - Entidades que se relacionam
+        - Não há divisão, tudo faz parte de tudo
+        - Efeitos colaterais indesejados
+    - DDD é um ponto de partida
+        - Módulos quebrados em bounded contexts
+        - Conversam através de contratos e facades
+        - Entidades podem ser "duplicadas" tendo apenas os atributos necessários
+        - Equipes especializadas por Módulos
+        - Alta coesão: o que muda junto, permanece junto.

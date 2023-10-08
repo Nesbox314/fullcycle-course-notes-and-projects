@@ -1,0 +1,163 @@
+Tipos de arquitetura de software
+- Software
+	- É uma disciplina da engenharia de software
+	- Diretamente ligada ao processo de desenvolvimento de software
+	- Afeta na estrutura organizacional da empresa
+		- Formação dos times
+		- Estrutura dos componentes do software
+		- Empresas tendem a desenvolver sistemas que refletem o sistema de comunicação e organizacional das empresas
+	- É a relação entre os objetivos de negócio e o desenvolvimento em si.
+	- Sempre pensa no futuro da aplicação a curto, a médio e a longo prazo.
+- Solução
+	- Fica entre a área de negócios e software
+	- Transformar requisitos de negócio em soluções de software
+	- Desenhos arquiteturais da solução de um software
+		- C4
+		- UML
+		- BPMN
+	- Analisa os impactos comerciais em relação a uma escolha tecnológica 
+	- Pode participar do processo comercial de pré-venda e venda
+	- Analisa os impactos dos custos para o negócio
+- Tecnológica
+	- Especialidade em tecnologias específicas de mercado
+	- Gera valor baseado em especialidades
+	- Diversidade de profissionais especialistas
+		- Ex: Arquiteto Elastic
+		- Ex: Arquiteto Java
+		- Ex: Arquiteto SQL Server
+		- Ex: Oracle
+		- Ex: SAP
+- Corporativa 
+	- Impactam estratégicamente a organização como um todo
+	- Avaliação de custos
+	- Avaliação de possíveis tecnologias
+	- Padronização de tecnologias
+	- Planejamento de grandes implantações
+		- Sistemas core
+		- Migrações
+
+- Arquitetura VS Design de software
+	- Arquitetura: escopo global ou alto nível.
+	- Design: escopo local.
+
+- Sustentabilidade
+	- Desenvolver software é caro.
+	- Software resolve uma "dor".
+	- Software precisa se pagar ao longo do tempo.
+	- Precisa acompanhar a evolução do negócio.
+	- Quanto mais tempo no ar, mais retorno monetário gera.
+	- A solução precisa ser arquitetada.
+
+- Pilares
+	- Estruturação.
+	- Componentização.
+	- Relacionamento entre sistemas.
+	- Governança.
+
+- Características arquiteturais
+	- Operacionais
+		- Disponibilidade
+		- Recuperação de desastres
+		- Performance
+		- Recuperação (backup)
+		- Confiabilidade e segurança
+		- Robustez
+		- Escalabilidade
+	- Estruturais
+		- Configurável
+		- Extensibilidade
+		- Fácil instalação 
+		- Reuso de componentes
+		- Internacionalização
+		- Fácil manutenção
+		- Portabilidade (diversos bancos de dados)
+		- Fácil suporte (logs, debugging)
+	- Cross-cutting
+		- Acessibilidade
+		- Processo de retenção e recuperação de dados (quanto tempo os dados serão mantidos)
+		- Autenticação e autorização
+		- Legal
+		- Privacidade
+		- Segurança
+		- Usabilidade
+
+Perspectivas para arquitetar software de qualidade
+	- Performance
+		- É o desempenho que um software possui para completar um determinado workload
+		- As unidades de medida para performance são:
+			- Latência ou "response time"
+				- Normalmente medida em milisegundos
+				- É afetada pelo tempo de processamento da aplicação, rede e chamadas externas
+			- Throughput (o quanto de requisição que um software pode aguentar)
+				- Permitir que o software possa lidar com mais requisições de forma simultânea
+				- Diretamente ligado a latência
+		- Ter um software performático não significa que ele seja escalável
+		- Principais razões para baixa performance:
+			- Processamento ineficiente
+			- Recursos computacionais limitados
+			- Trabalhar de forma bloqueante
+			- Acesso serial (fila de requisições) aos recursos
+		- Principais formas para aumentar a eficiência
+			- Escala da capacidade computacional (CPU, Disco, Memória, Rede)
+			- Lógica por trás do software (Algoritmos, queries, overhead de frameworks)
+			- Concorrência e paralelismo
+			- Bancos de dados (tipos de bancos, schema)
+			- Caching
+	- Escalabilidade
+		- É a capacidade de transformação do sistema em menor ou maior custo computacional.
+		- Disco efêmero
+		- Servidor de aplicação vs Servidor de assets
+		- Cache centralizado
+		- Sessões centralizadas
+		- Upload / Gravação de arquivos
+		- Tudo tem que ser destruído e criado facilmente.
+		- Escala de banco de dados:
+			- Aumentando recursos computacionais
+			- Distribuindo responsabilidades (escrita vs leitura)
+			- Shards de forma horizontal
+			- Serverless
+			- Trabalhe com índices de forma consciente
+			- APM nas queries
+			- Explain nas queries
+			- CQRS
+		- Proxy reverso:
+			- Faz o roteamento para o servidor certo com base na URL enviada
+			- Nginx, HAProxy, Traefik
+	- Resiliência
+		- Resiliência é quando o sistema se adapta as falhas para manter a integridade do serviço no ar
+		- Minimiza a perda de dados importantes para o negócio
+			Estratégias:
+				- Proteger e ser protegido
+					- Preservar a integridade dos sistemas para que não impacte outros sistemas interoperantes
+					- Um sistema lento muitas vezes pode ser pior que um sistema fora do ar
+				- Health Check
+					- Sem sinais vitais não é possível saber a saúde de um sistema
+					- Um sistema que não está saudável pode ser recuperado com a devida estratégia (self healing)
+					- Health check de qualidade
+				- Rate limiting
+					- Protege o sistema baseado no que ele foi projetado para suportar
+					- Preferência programada por tipo de client
+				- Circuit Breaker
+					- Protege o sistema negando requisições propositalmente em momentos de estresse
+					- Circuito fechado: Requisições chegam Normalmente
+					- Circuito aberto: Requisições não chegam no sistema, erro instantâneo
+					- Meio aberto: Permite uma quantidade limitada de requisições
+				- API Gateway
+					- Centraliza todas as requisições do sistema
+					- Garantem que requisições inapropriadas cheguem até o sistema
+					- Implementa políticas de rate limiting, health check e etc.
+				- Service Mesh
+					- Controla o tráfego de rede
+					- Evita implementação de proteção pelo próprio sistema
+					- mTLS (criptografia)
+				- Trabalhar de forma assíncrona
+					- Evita perda de dados
+					- Não há perda de dados no envio de uma transação se o server estiver fora
+					- Servidor pode processar a transação em seu tempo quando estiver online
+					- Entender com profundidade o message broker/stream
+				- Garantias de entrega
+					- Retry
+						- Novas tentativas de request em caso de falhas
+						- Exponential backoff - Jitter
+					- Kafka
+						- Dá a garantia necessária de que a mensagem foi entregue

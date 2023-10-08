@@ -1,0 +1,65 @@
+Comunicações entre sistemas
+    - REST
+        - Representational state of transfer
+        - Simplicidade
+        - Stateless
+        - Cacheável
+        - Níveis de maturidade:
+            - Nível 0: The swamp of POX (nenhuma padronização)
+            - Nível 1: Utilização de resources
+                - GET: /products/1
+                - POST: /products
+                - PUT: /products/1
+                - DELETE: /products/1
+            - Nível 2: utilização dos verbos HTTP corretos
+            - Nível 3: HATEOAS: Hypermedia as the Engine of Application State
+        - Padrões de estrutura REST
+            - HAL
+            - Collection+JSON
+            - Siren
+        - HTTP Method Negotiation
+            - Verbo HTTP OPTIONS, que permite identificar quais os verbos disponíveis para uma rota específica
+    - GraphQL
+        - Possível que seja selecionado os campos necessários nas requisições
+    - gRPC - Remote Procedure Call
+        - Tem o objetivo de facilitar a comunicação entre sistemas
+        - Ideal para microserviços
+        - Mobile, Browsers e Backend
+        - Geração das bibliotecas de forma automática
+        - Streaming bidirecional utilizando HTTP/2
+            - Suporte oficial
+                - G0 
+                - JAVA
+                - C e derivados
+        - Protocol Buffers (proto buff)
+            - É como um XML, mas menor, mais rápido e mais simples
+            - Arquivos binários < JSON
+            - Serialização mais leve
+            - Menos recursos de rede
+            - Mais veloz
+        - HTTP/2
+            - Dados trafegados são binários
+            - Utiliza a mesma conexão TCP
+            - Server push (consegue mandar e puxar arquivos e dados juntos)
+            - Headers são comprimidos
+            - Menos recursos de rede
+    - Service Discovery
+        - Ajuda a sabermos as máquinas que estão disponíveis para acesso
+        - Segmentação de máquinas para garantir segurança
+        - Resolução via DNS
+        - Health Check
+        - Saber se temos permissão para acessar
+    - Consul
+        - Hashicorp
+        - Service Discovery
+        - Service Segmentation
+        - Load Balancer na Borda (Layer 7)
+        - Key / Value configuration
+        - Opensource
+        - Service Registry 
+            - Registro de aplicações no Consul
+        - Health Check é feito através de agents instalados localmente em cada um dos serviços
+        - Multi-região e multi-cloud
+        - Agent: é executado em todos os nós do cluster
+        - Client: registra os serviços localmente, e encaminha para o Server
+        - Server: mantém o estado do cluster

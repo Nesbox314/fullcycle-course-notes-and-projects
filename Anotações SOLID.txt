@@ -1,0 +1,21 @@
+SOLID é um acrônimo de cinco conceitos de arquiteura de software
+    S) SRP = Single Resposabilty Principle
+        - Princípio da responsabilidade única
+        - Uma classe não pode ter mais do que uma responsabilidade
+        - Não deve ter mais de um motivo para ser modificada
+    O) OCP = Open-closed Principle
+        - Princípio do aberto e fechado
+        - Aberta para utilização, fechada para modificação
+        - Uso de interfaces
+        - É melhor criar uma nova classe extendida, do que encher o código de ifs
+    L) LSP = Liskov Substitution Principle
+        - Princípio de substituição de Liskov
+        - As classes extendidas tem de ser possível ser substituidas pela classe extensora
+    I) ISP = Interface Segregation Principle
+        - Princípio de segregação de interfaces
+        - Uma classe não deve implementar (extender), interfaces onde nem todos os métodos são usados
+    D) DIP = Dependency Inversion Principle
+        - Pricípio de inversão de dependência
+        - Uso de interfaces
+        - Evitar o uso de new em implementações de classes concretas
+        - Dependa da abstração, e não de classes concretas
