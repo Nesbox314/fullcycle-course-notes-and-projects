@@ -34,3 +34,24 @@ MICROSSERVIÇOS
     - CI/DD/Testes/Ambientes
     - Inicie pelas beiradas, comece pelas partes menos impactantes do Ambientes
     - Padrão de estrangulamento
+- Componentização
+    - In-memory calls
+    - Out of process 
+    - Auto deployável
+    - Ser via serviços
+- Áreas de negócios
+    - Separação das equipes com base em módulos de microserviços
+- Produtos e não projetos
+    - Uma visão diferente sobre os projetos, vendo-os como produtos pode mudar a qualidade final e o pós implementação
+- Smart endpoints and dumb pipes
+    - Tire a complexidade dos caminhos entre os microserviços, e coloque nos endpoints
+- Governança descentralizada
+    - Há regras diferenciadas para cada um dos microserviços, permitindo uma liberdade melhor de solução de problemas
+- Dados descentralizados
+    - Dados descentralizados garantem uma segurança maior em casos de danos aos servidores, porém geram mais trabalho para sincronização dos dados entre as bases
+- Automação de infraestrutura
+    - É extremamente necessário o planejamento da automação, já que são vários Microsserviços
+- Desenhado para falhar
+    - Pensar nos planos a, b e c para manter a resiliência do serviço
+- Design evolutivo
+    - Serviços pensados para evoluir, sem ter dependências uns dos outros
