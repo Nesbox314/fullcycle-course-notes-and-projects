@@ -39,19 +39,55 @@ MICROSSERVIÇOS
     - Out of process 
     - Auto deployável
     - Ser via serviços
-- Áreas de negócios
-    - Separação das equipes com base em módulos de microserviços
-- Produtos e não projetos
-    - Uma visão diferente sobre os projetos, vendo-os como produtos pode mudar a qualidade final e o pós implementação
-- Smart endpoints and dumb pipes
-    - Tire a complexidade dos caminhos entre os microserviços, e coloque nos endpoints
-- Governança descentralizada
-    - Há regras diferenciadas para cada um dos microserviços, permitindo uma liberdade melhor de solução de problemas
-- Dados descentralizados
-    - Dados descentralizados garantem uma segurança maior em casos de danos aos servidores, porém geram mais trabalho para sincronização dos dados entre as bases
-- Automação de infraestrutura
-    - É extremamente necessário o planejamento da automação, já que são vários Microsserviços
-- Desenhado para falhar
-    - Pensar nos planos a, b e c para manter a resiliência do serviço
-- Design evolutivo
-    - Serviços pensados para evoluir, sem ter dependências uns dos outros
+    - Áreas de negócios
+        - Separação das equipes com base em módulos de microserviços
+    - Produtos e não projetos
+        - Uma visão diferente sobre os projetos, vendo-os como produtos pode mudar a qualidade final e o pós implementação
+    - Smart endpoints and dumb pipes
+        - Tire a complexidade dos caminhos entre os microserviços, e coloque nos endpoints
+    - Governança descentralizada
+        - Há regras diferenciadas para cada um dos microserviços, permitindo uma liberdade melhor de solução de problemas
+    - Dados descentralizados
+        - Dados descentralizados garantem uma segurança maior em casos de danos aos servidores, porém geram mais trabalho para sincronização dos dados entre as bases
+    - Automação de infraestrutura
+        - É extremamente necessário o planejamento da automação, já que são vários Microsserviços
+    - Desenhado para falhar
+        - Pensar nos planos a, b e c para manter a resiliência do serviço
+    - Design evolutivo
+        - Serviços pensados para evoluir, sem ter dependências uns dos outros
+- Resiliência
+    - Em algum momento, todo o sistema vai falhar...
+    - O que é resiliência?
+        - É um conjunto de estratégias adotadas para adaptação do sistema quando existirem falhas
+        - Possibilita minimizar o risco de perda de dados e transações importantes
+    - Quais as estratégias?
+        - Deve definir mecanismos de autopreservação para garantir a operação com qualidade
+        - O sistema não pode ser "egoísta" ao realizar mais requisições em um sistema que está falhando
+        - Um sistema lento no ar é muitas vezes pior do que um sistema fora do ar (efeito dominó)
+        - Health check
+            - Sem sinais vitais, não é possível saber a "saúde" de um sistema
+            - Um sistema doente pode se recuperar caso você redirecione as requisições para outro serviço (self-healing)
+            - Health check de qualidade (não adianta testar apenas se o serviço está de pé)
+                - Passivo: quando o sistema é acessado ele checa a saúde
+                - Ativo: outros sistema validam a saúde do sistema
+        - Rate Limiting
+            - Protege o sistema com base no que ele foi projetado para suportar
+            - Preferência programada por tipo de cliente estratégico
+        - Circuit Breaker
+            - Protege o sistema fazendo com que as requisições sejam barradas caso necessário
+            - Circuito fechado é quando as requisições chegam normalmente
+            - Circuito aberto é quando as requisições não chegam ao sistema, erro instantêneo ao cliente
+            - Circuito meio aberto permite uma quantidade limitada de requisições para verificação se o sistema tem condições de voltar ao ar integralmente
+        - API Gateway
+            - Garante que as requisições inapropriadas cheguem até o sistema
+            - Implementa políticas de Health Check, Rate Limiting e etc.
+        - Service Mesh
+            - Controla o tráfego de rede 
+            - Evita implementações de proteção pelo próprio sistema 
+            - mTLS 
+            - Circuit breaker, retry, timeout, fault injection, etc.
+        - Trabalhe de forma assíncrona
+            - Evitar perda de dados (Kafka)
+            - Não há perda de dados no envio de uma transação se o servidor estiver fora do ar
+            - O servidor pode processar a transação em seu tempo quando estiver online
+            - Entender com profundidade o message broker / sistema de stream
