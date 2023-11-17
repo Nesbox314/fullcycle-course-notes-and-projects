@@ -19,3 +19,6 @@ SOLID é um acrônimo de cinco conceitos de arquiteura de software
         - Uso de interfaces
         - Evitar o uso de new em implementações de classes concretas
         - Dependa da abstração, e não de classes concretas
+
+
+        
