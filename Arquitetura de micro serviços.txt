@@ -134,5 +134,35 @@ MICROSSERVIÇOS
     - ACL - Camada anti-corrupção
         - Crie camadas para proteger os dados e as integrações de alterações, deixando-as genéricas
         - Pode-se criar um microserviço para proteger essas integrações
-
-
+- API Gateway
+    - É um ponto de entrada para a sua malha de microsserviços
+    - É ideal que não exponhamos os microsserviços para redes não internas
+    - Possível implementação de várias estratégias para proteção dos microsserviços
+    - Implementação de sistema de autenticação global
+    - Stateful (tem um banco de dados interno que guarda todas as informações)
+    - Stateless (sem banco de dados, apenas um arquivo de manifesto)
+- BFF (back-end for front-end)
+    - É um conceito relacionado a criar backends que tragam apenas as informações que o front precisa, ganhando performance
+    - GraphQL pode driblar esse problema
+- Bancos de dados voltados para microsserviços
+    - Quando os microsserviços acessam o mesmo banco de dados, há uma facilidade no desenvolvimento, porém no caso de falha no banco, todos os microsserviços vão parar
+    - Bancos de dados separados para cada microsserviço, são independentes, porém há necessidade de sincronização de dados
+- Consolidação de dados
+    - Para juntar dados de vários microsserviços separados, há algumas estratégias
+        - Realizar uma requisição para cada microsserviço, e juntar os dados no front-end (custoso e lento)
+        - Criar um microsserviço apenas para junção dos dados do relatório
+        - Criar um banco de dados com tabelas projetadas, que na entrada dos dados eles já são agrupados
+- Transactional outbox
+    - Ter uma tabela que armazena as requisições que deram erro é uma boa ideia
+    - Criar serviços para consumir as tabelas com requisições errados
+- Secret Manager
+    - Um serviço que guarda as senhas e credenciais de conexão com o banco de dados
+    - Credenciais hardcoded não são uma boa ideia
+- Padronização de logs
+    - É a centralização dos logs em um único local
+    - É um padrão único de print de logs, em ordem e informações
+    - Criar uma biblioteca de logs para print de todo o sistema de maneira única
+- Open Telemetry
+    - É um meio do caminho para todas as vendors de visualização de dados e métricas, que padroniza para todas as tecnologias de APM
+- Service Template
+    - É a padronização de diversas tecnologias em SDKs, para que todo o projeto já esteja todo configurado antes do início
