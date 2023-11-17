@@ -91,3 +91,48 @@ MICROSSERVIÇOS
             - Não há perda de dados no envio de uma transação se o servidor estiver fora do ar
             - O servidor pode processar a transação em seu tempo quando estiver online
             - Entender com profundidade o message broker / sistema de stream
+        - Retry
+            - É uma forma de não perder a mensagem implementando no sistema um meio de reenvio de mensagens
+            - Exponential backoff
+                - Tentativas de reenvio com tempo em crescente exponencial
+                - Jitter: nova tentativas de modo aleatório, diminuindo a concorrência
+        - Garantias de entrega
+            - Kafka: message broker que garante a entrega das mensagens
+            - Transactional outbox
+        - Garantia de recebimento
+            - Auto Ack = false e commit manual
+            - Prefetch alinhado a volumetria
+        - Observabilidade
+            - APM
+            - Tracing distribúido
+            - Métricas personalizadas
+            - Spans personalizadas
+            - Open telemetry
+- API Composition
+    - Como resolver um problema de dados compartilhados entre diversas APIs?
+        - Juntar os dados no front-end
+        - Juntar os dados via Service Composer
+        - Juntar via API Gateway
+        - Quais problemas podem aparecer?
+            - Disponibilidade de algum serviço
+            - Problema na consistência dos dados
+            - Aumento da complexidade
+            - Necessidade de criação de um serviço para uso de serviços
+            - Alta latência
+            - Trabalhar de forma síncrona
+    - E quando houver problema de regras de negócio compartilhadas?
+        - Podemos criar um serviço extra para operar as regras de negócio
+        - Pode rodar em background
+    - RESILIÊNCIA! E se os dados de um lado não vierem? Há de ser criado um plano B
+    - Decompose by business capability
+        - Separação de um monolito em diversos microserviços através dos módulos da aplicação
+        - Domain Driven Desing pode mitigar os problemas advindos dessa separação
+    - Strangler application
+        - Toda nova feature será desenvolvida em micro-serviço
+        - Pegar pequenos pedaços do sistema e transformar em microserviços 
+        - Realizar esses procedimentos até o sistema monolítico virar um microsserviços
+    - ACL - Camada anti-corrupção
+        - Crie camadas para proteger os dados e as integrações de alterações, deixando-as genéricas
+        - Pode-se criar um microserviço para proteger essas integrações
+
+
