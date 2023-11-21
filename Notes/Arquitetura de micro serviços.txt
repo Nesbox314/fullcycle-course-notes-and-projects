@@ -166,3 +166,9 @@ MICROSSERVIÇOS
     - É um meio do caminho para todas as vendors de visualização de dados e métricas, que padroniza para todas as tecnologias de APM
 - Service Template
     - É a padronização de diversas tecnologias em SDKs, para que todo o projeto já esteja todo configurado antes do início
+- Modelo C4
+    - É uma linguagem de programação de documentação de arquitetura de software
+    - C4: Context, Containers, Components and code 
+    
+
+    
