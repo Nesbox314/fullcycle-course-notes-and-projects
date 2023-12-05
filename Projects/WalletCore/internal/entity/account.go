@@ -8,6 +8,7 @@ import (
 
 type Account struct {
 	ID        string
+	ClientID  string
 	Client    *Client
 	Balance   float64
 	CreatedAt time.Time
@@ -20,7 +21,7 @@ func NewAccount(client *Client) *Account {
 	}
 	account := &Account{
 		ID:        uuid.New().String(),
-		Client:    client,
+		ClientID:  client,
 		Balance:   0,
 		CreatedAt: time.Now(),
 		UpdatedAt: time.Now(),
