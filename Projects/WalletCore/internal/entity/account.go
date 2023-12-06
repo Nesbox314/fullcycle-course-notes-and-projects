@@ -21,7 +21,8 @@ func NewAccount(client *Client) *Account {
 	}
 	account := &Account{
 		ID:        uuid.New().String(),
-		ClientID:  client,
+		ClientID:  client.ID,
+		Client:    client,
 		Balance:   0,
 		CreatedAt: time.Now(),
 		UpdatedAt: time.Now(),
