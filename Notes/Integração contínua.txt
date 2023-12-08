@@ -1,0 +1,22 @@
+INTEGRAÇÃO CONTÍNUA
+- Mais conhecido com CI
+- É o processo de integrar modificações do codebase de forma contínua e automatizada
+- Principais processos
+    - Execução de testes
+    - Linter
+    - Verificações de qualidade de código
+    - Verificações de segurança
+    - Geração de artefatos prontos para o deploy
+    - Indentificação da próxima versão a ser gerada no software
+    - Geração de tags e releases
+- Status check
+    - É a garantia que um merge request não seja feito antes que os passos do CI estejam OK
+- Ferramentas populares
+    - Jenkins
+    - Github Actions
+    - Circle CI
+    - AWS Code Build
+    - Azure DevOps
+    - Google Cloud Build
+    - GitLab Pipelines / CI
+- Actions são as ações que serão executadas em um dos Steps de um Job em um Wokflow, podendo ser criada do zero ou pré criada.
