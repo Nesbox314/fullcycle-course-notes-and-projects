@@ -1,0 +1,12 @@
+name: ci
+on: [push]
+jobs:
+  check-application:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: setup/setup-go@v2
+        with: 
+          go-version: 1.15
+      - run: go test
+      - run: go run math.go
